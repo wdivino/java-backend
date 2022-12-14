@@ -6,6 +6,7 @@ import com.wellington.userapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -31,15 +32,18 @@ public class UserService {
         return null;
     }
 
-    public UserDTO salvar(UserDTO userDTO) {
-        User usuarioCadastrado = userRepository.save(User.converter(userDTO));
+    public UserDTO salvar(UserDTO novoUsuario) {
+        novoUsuario.criadoEm(new Date());
+        User usuarioCadastrado = userRepository.save(User.converter(novoUsuario));
         return UserDTO.converter(usuarioCadastrado);
     }
 
-    public void excluirPorId(long id) {
+    public boolean excluirPorId(long id) {
         if (userRepository.existsById(id)) {
             userRepository.deleteById(id);
+            return true;
         }
+        return false;
     }
 
     public UserDTO obterPorCpf(String cpf) {
