@@ -33,7 +33,7 @@ public class UserController {
         return userService.obterPorCpf(cpf);
     }
 
-    @PostMapping()
+    @PostMapping
     public UserDTO inserir(@RequestBody UserDTO novoUsuario) {
         return userService.salvar(novoUsuario);
     }
