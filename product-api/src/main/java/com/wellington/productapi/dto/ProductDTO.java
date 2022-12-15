@@ -18,15 +18,15 @@ public class ProductDTO {
     @NotNull
     private Float preco;
     @NotNull
-    private CategoryDTO categoryDTO;
+    private CategoryDTO category;
 
-    public ProductDTO(long id, String nome, String descricao, String productIdentifier, Float preco, CategoryDTO categoryDTO) {
+    public ProductDTO(long id, String nome, String descricao, String productIdentifier, Float preco, CategoryDTO category) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
         this.productIdentifier = productIdentifier;
         this.preco = preco;
-        this.categoryDTO = categoryDTO;
+        this.category = category;
     }
 
     public static ProductDTO converter(Product product) {
@@ -60,7 +60,7 @@ public class ProductDTO {
         return preco;
     }
 
-    public CategoryDTO getCategoryDTO() {
-        return categoryDTO;
+    public CategoryDTO getCategory() {
+        return category;
     }
 }

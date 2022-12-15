@@ -34,7 +34,7 @@ public class Product {
                 productDTO.getDescricao(),
                 productDTO.getProductIdentifier(),
                 productDTO.getPreco(),
-                Objects.isNull(productDTO.getCategoryDTO()) ? null : Category.converter(productDTO.getCategoryDTO())
+                Objects.isNull(productDTO.getCategory()) ? null : Category.converter(productDTO.getCategory())
         );
     }
 
