@@ -23,7 +23,7 @@ public class ProductService {
                 .collect(Collectors.toList());
     }
 
-    public ProductDTO getByProductIdentifier(String identifier) {
+    public ProductDTO getByIdentifier(String identifier) {
         Optional<Product> possivelProdutoEncontrado = productRepository.findByProductIdentifier(identifier);
         if (possivelProdutoEncontrado.isEmpty()) {
             return null;

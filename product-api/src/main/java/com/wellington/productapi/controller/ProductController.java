@@ -21,7 +21,7 @@ public class ProductController {
 
     @GetMapping("{identifier}")
     public ProductDTO getByIdentifier(@PathVariable String identifier) {
-        return productService.getByProductIdentifier(identifier);
+        return productService.getByIdentifier(identifier);
     }
 
     @PostMapping
