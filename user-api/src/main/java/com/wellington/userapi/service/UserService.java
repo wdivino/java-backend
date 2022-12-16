@@ -6,7 +6,7 @@ import com.wellington.userapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -33,7 +33,7 @@ public class UserService {
     }
 
     public UserDTO salvar(UserDTO novoUsuario) {
-        novoUsuario.criadoEm(new Date());
+        novoUsuario.criadoEm(LocalDateTime.now());
         User usuarioCadastrado = userRepository.save(User.converter(novoUsuario));
         return UserDTO.converter(usuarioCadastrado);
     }

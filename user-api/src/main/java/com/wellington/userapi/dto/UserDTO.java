@@ -2,7 +2,7 @@ package com.wellington.userapi.dto;
 
 import com.wellington.userapi.entity.User;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class UserDTO {
 
@@ -11,9 +11,9 @@ public class UserDTO {
     private String endereco;
     private String email;
     private String telefone;
-    private Date dataCadastro;
+    private LocalDateTime dataCadastro;
 
-    public UserDTO(String nome, String cpf, String endereco, String email, String telefone, Date dataCadastro) {
+    public UserDTO(String nome, String cpf, String endereco, String email, String telefone, LocalDateTime dataCadastro) {
         this.nome = nome;
         this.cpf = cpf;
         this.endereco = endereco;
@@ -26,7 +26,7 @@ public class UserDTO {
         return new UserDTO(user.getNome(), user.getCpf(), user.getEndereco(), user.getEmail(), user.getTelefone(), user.getDataCadastro());
     }
 
-    public void criadoEm(Date data) {
+    public void criadoEm(LocalDateTime data) {
         this.dataCadastro = data;
     }
 
@@ -50,7 +50,7 @@ public class UserDTO {
         return telefone;
     }
 
-    public Date getDataCadastro() {
+    public LocalDateTime getDataCadastro() {
         return dataCadastro;
     }
 }

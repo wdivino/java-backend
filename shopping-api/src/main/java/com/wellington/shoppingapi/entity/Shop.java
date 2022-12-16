@@ -4,8 +4,8 @@ import com.wellington.shoppingapi.dto.ItemDTO;
 import com.wellington.shoppingapi.dto.ShopDTO;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Entity(name = "shop")
@@ -16,18 +16,18 @@ public class Shop {
     private long id;
     private String userIdentifier;
     private Float total;
-    private Date date;
+    private LocalDateTime date;
 
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "item", joinColumns = @JoinColumn(name = "shop_id"))
     private List<Item> items;
 
-    public Shop(String userIdentifier, Date date) {
+    public Shop(String userIdentifier, LocalDateTime date) {
         this.userIdentifier = userIdentifier;
         this.date = date;
     }
 
-    public Shop(String userIdentifier, Float total, Date date) {
+    public Shop(String userIdentifier, Float total, LocalDateTime date) {
         this.userIdentifier = userIdentifier;
         this.total = total;
         this.date = date;
@@ -69,7 +69,7 @@ public class Shop {
         return total;
     }
 
-    public Date getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 

@@ -4,7 +4,7 @@ import com.wellington.shoppingapi.entity.Shop;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,11 +16,11 @@ public class ShopDTO {
     @NotNull
     private Float total;
     @NotNull
-    private Date date;
+    private LocalDateTime date;
     @NotNull
     private List<ItemDTO> items;
 
-    public ShopDTO(Long id, String userIdentifier, Float total, Date date, List<ItemDTO> items) {
+    public ShopDTO(Long id, String userIdentifier, Float total, LocalDateTime date, List<ItemDTO> items) {
         this.id = id;
         this.userIdentifier = userIdentifier;
         this.total = total;
@@ -52,7 +52,7 @@ public class ShopDTO {
         return total;
     }
 
-    public Date getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 

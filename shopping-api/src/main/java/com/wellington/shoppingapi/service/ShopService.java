@@ -6,7 +6,7 @@ import com.wellington.shoppingapi.repository.ShopRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -31,8 +31,8 @@ public class ShopService {
                 .collect(Collectors.toList());
     }
 
-    public List<ShopDTO> getByDate(Date date) {
-        return shopRepository.findAllByDateGreaterThanEquals(date)
+    public List<ShopDTO> getByDate(LocalDateTime date) {
+        return shopRepository.findAllByDateGreaterThan(date)
                 .stream()
                 .map(ShopDTO::converter)
                 .collect(Collectors.toList());

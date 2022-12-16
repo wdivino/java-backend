@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 public class User {
@@ -19,9 +19,9 @@ public class User {
     private String endereco;
     private String email;
     private String telefone;
-    private Date dataCadastro;
+    private LocalDateTime dataCadastro;
 
-    public User(String nome, String cpf, String endereco, String email, String telefone, Date dataCadastro) {
+    public User(String nome, String cpf, String endereco, String email, String telefone, LocalDateTime dataCadastro) {
         this.nome = nome;
         this.cpf = cpf;
         this.endereco = endereco;
@@ -58,7 +58,7 @@ public class User {
         return telefone;
     }
 
-    public Date getDataCadastro() {
+    public LocalDateTime getDataCadastro() {
         return dataCadastro;
     }
 }
